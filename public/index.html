@@ -7,7 +7,7 @@
     <!-- Web App Config -->
     <title>PairDrop | Transfer Files Cross-Platform. No Setup, No Signup.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#3367d6">
+    <meta name="theme-color" content="#f4f6fb">
     <meta name="color-scheme" content="dark light">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -42,110 +42,198 @@
 </head>
 
 <body translate="no">
-    <header class="row-reverse wrap opacity-0">
+    <header class="app-header row-reverse wrap opacity-0">
+        <a class="brand" href="/" aria-label="PairDrop home">
+            <span class="brand-mark">
+                <svg class="icon">
+                    <use xlink:href="#wifi-tethering"></use>
+                </svg>
+            </span>
+            <span class="brand-name">PairDrop</span>
+            <span class="brand-caption" data-i18n-key="workspace.brand-caption" data-i18n-attrs="text"></span>
+        </a>
         <a href="#about" class="icon-button" data-i18n-key="header.about" data-i18n-attrs="title aria-label">
             <svg class="icon">
                 <use xlink:href="#info-outline"></use>
             </svg>
         </a>
-        <div id="language-selector" class="icon-button" data-i18n-key="header.language-selector" data-i18n-attrs="title">
+        <button id="language-selector" class="icon-button" type="button" data-i18n-key="header.language-selector" data-i18n-attrs="title">
             <svg class="icon">
                 <use xlink:href="#icon-language-selector"></use>
             </svg>
-        </div>
+        </button>
         <div id="theme-wrapper">
-            <div id="theme-auto" class="icon-button selected" data-i18n-key="header.theme-auto" data-i18n-attrs="title">
+            <button id="theme-auto" class="icon-button selected" type="button" data-i18n-key="header.theme-auto" data-i18n-attrs="title">
                 <svg class="icon">
                     <use xlink:href="#icon-theme-auto"></use>
                 </svg>
-            </div>
+            </button>
             <div>
-                <div id="theme-light" class="icon-button" data-i18n-key="header.theme-light" data-i18n-attrs="title">
+                <button id="theme-light" class="icon-button" type="button" data-i18n-key="header.theme-light" data-i18n-attrs="title">
                     <svg class="icon">
                         <use xlink:href="#icon-theme-light"></use>
                     </svg>
-                </div>
-                <div id="theme-dark" class="icon-button" data-i18n-key="header.theme-dark" data-i18n-attrs="title">
+                </button>
+                <button id="theme-dark" class="icon-button" type="button" data-i18n-key="header.theme-dark" data-i18n-attrs="title">
                     <svg class="icon">
                         <use xlink:href="#icon-theme-dark"></use>
                     </svg>
-                </div>
+                </button>
             </div>
         </div>
-        <div id="notification" class="icon-button" data-i18n-key="header.notification" data-i18n-attrs="title" hidden>
+        <button id="notification" class="icon-button" type="button" data-i18n-key="header.notification" data-i18n-attrs="title" hidden>
             <svg class="icon">
                 <use xlink:href="#notifications"></use>
             </svg>
-        </div>
-        <div id="install" class="icon-button" data-i18n-key="header.install" data-i18n-attrs="title" hidden>
+        </button>
+        <button id="install" class="icon-button" type="button" data-i18n-key="header.install" data-i18n-attrs="title" hidden>
             <svg class="icon">
                 <use xlink:href="#homescreen"></use>
             </svg>
-        </div>
-        <div id="pair-device" class="icon-button" data-i18n-key="header.pair-device" data-i18n-attrs="title">
+        </button>
+        <button id="pair-device" class="icon-button primary-control" type="button" data-i18n-key="header.pair-device" data-i18n-attrs="title">
             <svg class="icon">
                 <use xlink:href="#pair-device-icon"></use>
             </svg>
-        </div>
-        <div id="edit-paired-devices" class="icon-button" data-i18n-key="header.edit-paired-devices" data-i18n-attrs="title" hidden>
+            <span class="toolbar-label" data-i18n-key="workspace.pair-device" data-i18n-attrs="text"></span>
+        </button>
+        <button id="edit-paired-devices" class="icon-button" type="button" data-i18n-key="header.edit-paired-devices" data-i18n-attrs="title" hidden>
             <svg class="icon">
                 <use xlink:href="#edit-pair-devices-icon"></use>
             </svg>
-        </div>
-        <div id="join-public-room" class="icon-button" data-i18n-key="header.join-public-room" data-i18n-attrs="title">
+        </button>
+        <button id="join-public-room" class="icon-button room-control" type="button" data-i18n-key="header.join-public-room" data-i18n-attrs="title">
             <svg class="icon">
                 <use xlink:href="#public-room-icon"></use>
             </svg>
-        </div>
-        <div id="expand" class="icon-button" data-i18n-key="header.expand" data-i18n-attrs="title" hidden>
+            <span class="toolbar-label" data-i18n-key="workspace.join-room" data-i18n-attrs="text"></span>
+        </button>
+        <button id="expand" class="icon-button" type="button" data-i18n-key="header.expand" data-i18n-attrs="title" hidden>
             <svg class="icon">
                 <use xlink:href="#caret"></use>
             </svg>
-        </div>
+        </button>
     </header>
     <!-- Center -->
-    <div id="center" class="opacity-0">
-        <!-- Peers -->
-        <x-peers class="center grow-5"></x-peers>
-        <x-no-peers class="center grow fade-in no-animation-on-load" data-i18n-key="instructions.no-peers" data-i18n-attrs="data-drop-bg">
-            <h2 data-i18n-key="instructions.no-peers-title" data-i18n-attrs="text"></h2>
-            <div data-i18n-key="instructions.no-peers-subtitle" data-i18n-attrs="text"></div>
-        </x-no-peers>
-        <x-instructions class="grow fade-in" data-i18n-key="instructions.x-instructions" data-i18n-attrs="desktop mobile data-drop-peer data-drop-bg"></x-instructions>
-        <div class="shr-panel panel column" hidden>
-            <div class="row">
-                <div class="thumb center">
-                    <div class="text-thumb row" hidden>
-                        <svg>
-                            <use xlink:href="#font"></use>
-                        </svg>
-                        <svg>
-                            <use xlink:href="#i-cursor"></use>
+    <main id="center" class="opacity-0">
+        <section class="hero-copy">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span data-i18n-key="workspace.hero-eyebrow" data-i18n-attrs="text"></span>
+            </div>
+            <h1 data-i18n-key="workspace.hero-title" data-i18n-attrs="text"></h1>
+            <p data-i18n-key="workspace.hero-description" data-i18n-attrs="text"></p>
+        </section>
+        <div class="workspace-grid">
+            <section class="transfer-card" aria-labelledby="transfer-section-title">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker" data-i18n-key="workspace.transfer-kicker" data-i18n-attrs="text"></span>
+                        <h2 id="transfer-section-title" data-i18n-key="workspace.transfer-title" data-i18n-attrs="text"></h2>
+                    </div>
+                    <span class="step-number">01</span>
+                </div>
+                <div class="dropzone" id="drop-zone" role="group" aria-labelledby="dropzone-title" aria-describedby="dropzone-description">
+                    <div class="drop-illustration" aria-hidden="true">
+                        <span class="illustration-orbit orbit-one"></span>
+                        <span class="illustration-orbit orbit-two"></span>
+                        <svg viewBox="0 0 64 64" aria-hidden="true">
+                            <path d="M32 40V15m0 0L22 25m10-10 10 10" />
+                            <path d="M17 37v11a4 4 0 0 0 4 4h22a4 4 0 0 0 4-4V37" />
                         </svg>
                     </div>
-                    <div class="file-thumb" hidden>
-                        <svg>
-                            <use xlink:href="#file"></use>
+                    <h3 id="dropzone-title" data-i18n-key="workspace.drop-title" data-i18n-attrs="text"></h3>
+                    <p id="dropzone-description" data-i18n-key="workspace.drop-description" data-i18n-attrs="text"></p>
+                    <button id="choose-files" class="choose-files-button" type="button">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 5v14M5 12h14" />
+                        </svg>
+                        <span data-i18n-key="workspace.choose-files" data-i18n-attrs="text"></span>
+                    </button>
+                    <span class="file-types" data-i18n-key="workspace.drop-hint" data-i18n-attrs="text"></span>
+                    <input id="file-picker" type="file" multiple hidden>
+                </div>
+                <div class="privacy-note">
+                    <span class="privacy-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3 5 6v5c0 4.5 2.9 8.3 7 10 4.1-1.7 7-5.5 7-10V6l-7-3Z" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                    </span>
+                    <span data-i18n-key="workspace.privacy-note" data-i18n-attrs="text"></span>
+                </div>
+            </section>
+            <section class="devices-card" aria-labelledby="devices-section-title">
+                <div class="section-heading devices-heading">
+                    <div>
+                        <span class="section-kicker" data-i18n-key="workspace.devices-kicker" data-i18n-attrs="text"></span>
+                        <h2 id="devices-section-title" data-i18n-key="workspace.devices-title" data-i18n-attrs="text"></h2>
+                    </div>
+                    <span class="devices-indicator" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 20a8 8 0 1 1 8-8" />
+                            <path d="M12 16a4 4 0 1 1 4-4" />
+                            <circle cx="12" cy="12" r="1" />
+                        </svg>
+                    </span>
+                </div>
+                <x-peers class="center grow-5"></x-peers>
+                <x-no-peers class="center grow fade-in no-animation-on-load" data-i18n-key="instructions.no-peers" data-i18n-attrs="data-drop-bg">
+                    <div class="empty-device-art" aria-hidden="true">
+                        <svg viewBox="0 0 64 64">
+                            <rect x="11" y="12" width="27" height="38" rx="5" />
+                            <path d="M20 44h9M43 22h10v30H29" />
+                            <path d="M41 32h6m-3-3v6" />
                         </svg>
                     </div>
-                    <div class="image-thumb" hidden></div>
+                    <h2 data-i18n-key="instructions.no-peers-title" data-i18n-attrs="text"></h2>
+                    <div class="empty-copy" data-i18n-key="instructions.no-peers-subtitle" data-i18n-attrs="text"></div>
+                    <div class="empty-actions">
+                        <button id="pair-device-cta" class="empty-action primary-action" type="button">
+                            <span data-i18n-key="workspace.pair-device" data-i18n-attrs="text"></span>
+                        </button>
+                        <button id="join-room-cta" class="empty-action" type="button">
+                            <span data-i18n-key="workspace.join-room" data-i18n-attrs="text"></span>
+                        </button>
+                    </div>
+                </x-no-peers>
+                <x-instructions class="grow fade-in" data-i18n-key="instructions.x-instructions" data-i18n-attrs="desktop mobile data-drop-peer data-drop-bg"></x-instructions>
+                <div class="shr-panel panel column" hidden>
+                    <div class="row">
+                        <div class="thumb center">
+                            <div class="text-thumb row" hidden>
+                                <svg>
+                                    <use xlink:href="#font"></use>
+                                </svg>
+                                <svg>
+                                    <use xlink:href="#i-cursor"></use>
+                                </svg>
+                            </div>
+                            <div class="file-thumb" hidden>
+                                <svg>
+                                    <use xlink:href="#file"></use>
+                                </svg>
+                            </div>
+                            <div class="image-thumb" hidden></div>
+                        </div>
+                        <div class="share-descriptor column p-1">
+                            <span class="descriptor-item"></span>
+                            <span class="descriptor-other" hidden></span>
+                        </div>
+                    </div>
+                    <div class="center btn-row wrap">
+                        <div class="cancel-btn btn btn-small btn-rounded btn-dark text-white" data-i18n-key="header.cancel-share-mode" data-i18n-attrs="text"></div>
+                        <div class="edit-btn btn btn-small btn-rounded btn-dark text-white" data-i18n-key="header.edit-share-mode" data-i18n-attrs="text" hidden></div>
+                    </div>
                 </div>
-                <div class="share-descriptor column p-1">
-                    <span class="descriptor-item"></span>
-                    <span class="descriptor-other" hidden></span>
+                <div id="websocket-fallback" class="text-center" hidden>
+                    <span data-i18n-key="footer.traffic" data-i18n-attrs="text"></span>
+                    <span data-i18n-key="footer.routed" data-i18n-attrs="text"></span>
+                    <span data-i18n-key="footer.webrtc" data-i18n-attrs="text"></span>
                 </div>
-            </div>
-            <div class="center btn-row wrap">
-                <div class="cancel-btn btn btn-small btn-rounded btn-dark text-white" data-i18n-key="header.cancel-share-mode" data-i18n-attrs="text"></div>
-                <div class="edit-btn btn btn-small btn-rounded btn-dark text-white" data-i18n-key="header.edit-share-mode" data-i18n-attrs="text" hidden></div>
-            </div>
+            </section>
         </div>
-        <div id="websocket-fallback" class="text-center" hidden>
-            <span data-i18n-key="footer.traffic" data-i18n-attrs="text"></span>
-            <span data-i18n-key="footer.routed" data-i18n-attrs="text"></span>
-            <span data-i18n-key="footer.webrtc" data-i18n-attrs="text"></span>
-        </div>
-    </div>
+    </main>
     <!-- Footer -->
     <footer class="column opacity-0">
         <svg class="icon logo">
@@ -160,6 +248,9 @@
         <div class="column">
             <div class="known-as-wrapper">
                 <span data-i18n-key="footer.known-as" data-i18n-attrs="text"></span>
+                <span class="profile-avatar" aria-hidden="true">
+                    <svg class="icon"><use xlink:href="#desktop-mac"></use></svg>
+                </span>
                 <div id="display-name" class="badge" data-i18n-key="footer.display-name" data-i18n-attrs="data-placeholder title" autocorrect="off" autocomplete="off" autocapitalize="none" spellcheck="false" contenteditable></div>
                 <svg class="icon edit-pen">
                     <use xlink:href="#edit-pen-icon"></use>

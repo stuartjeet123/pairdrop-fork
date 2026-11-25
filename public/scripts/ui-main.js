@@ -125,6 +125,12 @@ class HeaderUI {
     }
 
     async evaluateOverflowing() {
+        if (this.$header.classList.contains('app-header')) {
+            this.$expandBtn.setAttribute('hidden', true);
+            this.$header.classList.remove('overflow-hidden', 'overflow-expanded');
+            return;
+        }
+
         // remove bracket icon before evaluating
         this.$expandBtn.setAttribute('hidden', true);
         // reset bracket icon rotation and header overflow

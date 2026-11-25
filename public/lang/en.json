@@ -15,6 +15,23 @@
         "edit-share-mode": "Edit",
         "expand_title": "Expand header button row"
     },
+    "workspace": {
+        "brand-caption": "PRIVATE FILE SHARING",
+        "hero-eyebrow": "A simpler way to share",
+        "hero-title": "Your files. Your devices. No friction.",
+        "hero-description": "Send photos, documents, and links in seconds. No accounts or cables. PairDrop never stores your files.",
+        "transfer-kicker": "Step 1",
+        "transfer-title": "Choose what to send",
+        "drop-title": "Drop files to get started",
+        "drop-description": "Drag and drop files here, or browse your device.",
+        "choose-files": "Choose files",
+        "drop-hint": "Photos, videos, documents, and more",
+        "privacy-note": "Sent device-to-device when possible. Never stored by PairDrop.",
+        "devices-kicker": "Step 2",
+        "devices-title": "Nearby devices",
+        "pair-device": "Pair device",
+        "join-room": "Join a room"
+    },
     "instructions": {
         "no-peers_data-drop-bg": "Release to select recipient",
         "no-peers-title": "Open PairDrop on other devices to send files",

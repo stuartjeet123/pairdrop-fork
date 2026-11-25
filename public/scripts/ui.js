@@ -16,6 +16,16 @@ class PeersUI {
         this.$shareModeCancelBtn = $$('.shr-panel .cancel-btn');
         this.$shareModeEditBtn = $$('.shr-panel .edit-btn');
 
+        this.$filePicker = $('file-picker');
+        $('choose-files').addEventListener('click', _ => this.$filePicker.click());
+        this.$filePicker.addEventListener('change', _ => {
+            const files = [...this.$filePicker.files];
+            this.$filePicker.value = '';
+            if (files.length > 0) Events.fire('activate-share-mode', { files: files });
+        });
+        $('pair-device-cta').addEventListener('click', _ => $('pair-device').click());
+        $('join-room-cta').addEventListener('click', _ => $('join-public-room').click());
+
         this.peers = {};
 
         this.shareMode = {
