@@ -11,11 +11,12 @@ RUN NODE_ENV="production" npm ci --omit=dev
 COPY . .
 
 # environment settings
-ENV NODE_ENV="production"
+ENV NODE_ENV="production" \
+  PORT=4106
 
-EXPOSE 3000
+EXPOSE 4106
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://localhost:3000 || exit 1
+  CMD wget --quiet --tries=1 --spider http://localhost:4106 || exit 1
 
 ENTRYPOINT ["npm", "start"]
